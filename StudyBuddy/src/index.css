@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * StudyBuddy - Student Task Manager App Theme
+   * Modern, vibrant colors designed for student productivity
+   */
+  :root {
+    --background: 250 100% 99%;
+    --foreground: 235 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 235 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 235 15% 15%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 250 100% 97%;
+    --secondary-foreground: 235 15% 25%;
+
+    --muted: 250 100% 97%;
+    --muted-foreground: 235 15% 45%;
+
+    --accent: 270 95% 97%;
+    --accent-foreground: 262 83% 58%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 250 60% 92%;
+    --input: 250 60% 94%;
+    --ring: 262 83% 58%;
+
+    --radius: 0.75rem;
+
+    /* Student-focused brand colors */
+    --brand-primary: 262 83% 58%;
+    --brand-primary-foreground: 0 0% 98%;
+    --brand-secondary: 185 84% 39%;
+    --brand-accent: 310 100% 69%;
+
+    /* Status colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 98%;
+
+    /* Sidebar colors */
+    --sidebar-background: 250 100% 99%;
+    --sidebar-foreground: 235 15% 25%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 270 95% 97%;
+    --sidebar-accent-foreground: 262 83% 58%;
+    --sidebar-border: 250 60% 92%;
+    --sidebar-ring: 262 83% 58%;
+  }
+
+  .dark {
+    --background: 235 15% 6%;
+    --foreground: 250 100% 97%;
+
+    --card: 235 15% 8%;
+    --card-foreground: 250 100% 97%;
+
+    --popover: 235 15% 8%;
+    --popover-foreground: 250 100% 97%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 235 15% 12%;
+    --secondary-foreground: 250 100% 97%;
+
+    --muted: 235 15% 12%;
+    --muted-foreground: 235 15% 65%;
+
+    --accent: 235 15% 12%;
+    --accent-foreground: 262 83% 58%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 235 15% 18%;
+    --input: 235 15% 18%;
+    --ring: 262 83% 58%;
+
+    /* Dark mode brand colors */
+    --brand-primary: 262 83% 58%;
+    --brand-primary-foreground: 0 0% 98%;
+    --brand-secondary: 185 84% 39%;
+    --brand-accent: 310 100% 69%;
+
+    /* Dark mode status colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 98%;
+
+    /* Dark sidebar */
+    --sidebar-background: 235 15% 6%;
+    --sidebar-foreground: 250 100% 90%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 235 15% 12%;
+    --sidebar-accent-foreground: 262 83% 58%;
+    --sidebar-border: 235 15% 18%;
+    --sidebar-ring: 262 83% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground;
+  }
+
+  /* Focus styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+}
+
+@layer components {
+  /* Priority indicators */
+  .priority-high {
+    @apply bg-destructive/10 text-destructive border-destructive/20;
+  }
+
+  .priority-medium {
+    @apply bg-warning/10 text-warning border-warning/20;
+  }
+
+  .priority-low {
+    @apply bg-success/10 text-success border-success/20;
+  }
+
+  /* Category colors */
+  .category-academic {
+    @apply bg-brand-primary/10 text-brand-primary border-brand-primary/20;
+  }
+
+  .category-personal {
+    @apply bg-brand-secondary/10 text-brand-secondary border-brand-secondary/20;
+  }
+
+  .category-extracurricular {
+    @apply bg-brand-accent/10 text-brand-accent border-brand-accent/20;
+  }
+
+  .category-work {
+    @apply bg-info/10 text-info border-info/20;
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-background/80 backdrop-blur-sm border border-border/50;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-primary {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--brand-primary)) 0%,
+      hsl(var(--brand-secondary)) 100%
+    );
+  }
+
+  .gradient-accent {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--brand-accent)) 0%,
+      hsl(var(--brand-primary)) 100%
+    );
+  }
+}
